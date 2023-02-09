@@ -8,7 +8,7 @@ with open(output_clean_file, "w") as cleaned_dictionary:    #   Open file for cl
                 if ascii_text == True:
                     cleaned_dictionary.write(line)
                 else:
-                    print(line + " - NOT ASCII - PASSING")
+                    print(line + "NOT ASCII - PASSING")
         except UnicodeDecodeError:
-            print(line + " - Unsupported characters - PASSING")
+            print(line + "Unsupported characters - PASSING")
             pass
