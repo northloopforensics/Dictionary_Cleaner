@@ -3,12 +3,12 @@ output_clean_file = PATH_TO_OUTPUT_TEXT_FILE
 with open(output_clean_file, "w") as cleaned_dictionary:    #   Open file for clean ASCII output
     with open(input_text_file, "r") as dictionary:          #   Open file that may have non-ASCII characters
         try:
-            for line in dictionary:
-                ascii_text = line.isascii()
+            for line in dictionary:                         #   Read each line of dictionary file
+                ascii_text = line.isascii()                 #   Is the line ASCII?
                 if ascii_text == True:
-                    cleaned_dictionary.write(line)
+                    cleaned_dictionary.write(line)          #   ASCII lines added to clean output
                 else:
-                    print(line + "NOT ASCII - PASSING")
+                    print(line + "NOT ASCII - PASSING")     #   Print to terminal if not line is not ASCII
         except UnicodeDecodeError:
-            print(line + "Unsupported characters - PASSING")
+            print(line + "Unsupported characters - PASSING")#   Unrecognized characters (aka not ASCII) found
             pass
