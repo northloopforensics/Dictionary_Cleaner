@@ -1,0 +1,14 @@
+input_text_file = PATH_TO_INPUT_TEXT_FILE
+output_clean_file = PATH_TO_OUTPUT_TEXT_FILE
+with open(output_clean_file, "w") as cleaned_dictionary:    #   Open file for clean ASCII output
+    with open(input_text_file, "r") as dictionary:          #   Open file that may have non-ASCII characters
+        try:
+            for line in dictionary:
+                ascii_text = line.isascii()
+                if ascii_text == True:
+                    cleaned_dictionary.write(line)
+                else:
+                    print(line + " - NOT ASCII - PASSING")
+        except UnicodeDecodeError:
+            print(line + " - Unsupported characters - PASSING")
+            pass
